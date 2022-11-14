@@ -1,0 +1,66 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+
+<style>
+    .input-box {
+        position: absolute;
+        z-index: 3;
+        background: white;
+        height: 50px;
+        width: 20%;
+        left: 0px;
+        top: 60px;
+}
+
+.output-box {
+  position: absolute;
+  z-index: 2;
+  display:block;
+  overflow: auto;
+  background: rgb(185, 220, 233);
+  width: 40%;
+  left: 0px;
+  top: 290px;
+  height: 350px;
+}
+
+.meta {
+  position: absolute;
+  z-index: 3;
+  background: white;
+  height: 50px;
+  width: 40%;
+  left: 600px;
+  top: 60px;
+}
+</style>
+
+<body>
+    <div class = 'meta'>
+
+      <img  src="{% static "tutorial/studentinfo.PNG" %}" alt="home" width="300" height="200" />
+
+    </div>
+    <div class="input-box">
+        <form action="{% url 'tutorial:dataframe' %}" method="post">
+            {% csrf_token %}
+
+            <textarea name="query" style="width:595px; height:200px;" 
+            placeholder="A df with given metadata is already created write df commands to execute"></textarea>
+            <br>
+            <input type="submit" value="Execute">
+          </form>
+
+    </div>
+
+    <div class = "output-box">
+
+        {% if message %}
+            {{message}}
+          {% endif %}
+
+    </div>
+</body>
+
+</html>

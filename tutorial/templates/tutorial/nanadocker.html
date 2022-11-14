@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: rgb(141, 99, 139);
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      background-color: #26df9b;
+      color: white;
+    }
+</style>
+</head>
+<body>
+
+    <div class="topnav">
+        
+
+        <!--<form action ="nana/" method='POST' style="display: inline;">
+          {% csrf_token %}   
+              <input style="margin-right:156px" type="submit" class="button" value="nanaDocker">
+          </form> -->
+        <button style="margin-right:156px" type="button" class="button">httpbin</button>
+        
+        <!---<a href="#contact">Contact</a>-->
+        <!--<a href="#about">About</a>-->
+    </div>
+    <div>
+    <form action ="nanadocker/" method='POST'  style="display: inline;margin-right:156px;">
+        {% csrf_token %}
+
+        <label for="Name">name:</label>
+        <input type="text" name="Name"><br><br>
+        <label for="Email">Email :</label>
+        <input type="text" name="Email"><br><br>
+        <label for="City">City:</label>
+        <input type="text" name="City"> <br><br>
+            
+        <input type="submit" class="button" value="submit">
+        </form>
+    </div>
+    
+    <ul>
+    
+    {% for greeting in greetings %}
+        <li>{{ greeting.when }}</li>
+    {% endfor %}
+    
+    </ul>
+
+</body>
+</html>

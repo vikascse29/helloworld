@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="topnav">
+        <!--<form action ="pic/" method='POST'  style="display: inline;margin-right:156px;">
+        {% csrf_token %}   
+            <input type="submit" class="button" value="Button1">
+        </form>-->
+
+        <form action ="nana/" method='POST' style="display: inline;">
+          {% csrf_token %}   
+              <input style="margin-right:156px" type="submit" class="button" value="nanaDocker">
+          </form>
+          <a href="{% url 'nana' %}">Nana</a>
+
+        <!-- <button style="margin-right:156px" type="button" class="button">httpbin</button> -->
+        
+        <!---<a href="#contact">Contact</a>-->
+        <!--<a href="#about">About</a>-->
+    </div>
+    <ul>
+    
+    {% for greeting in greetings %}
+        <li>{{ greeting.when }}</li>
+    {% endfor %}
+    
+    </ul>
+
+  
+
+    {% endblock content %}

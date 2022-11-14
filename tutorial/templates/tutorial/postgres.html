@@ -1,0 +1,113 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+
+<style>
+
+.container {
+  top: 60px;
+  position: relative;
+}
+
+.schema {
+  position: relative;
+  z-index: 1;
+  border: 2px solid black;
+  height: 700px;
+  width: 800px;
+  margin: 0px;
+}
+
+.input-box {
+  position: absolute;
+  z-index: 3;
+  background: white;
+  height: 200px;
+  width: 40%;
+  right: 0px;
+  top: 60px;
+}
+
+.output-box {
+  position: absolute;
+  z-index: 2;
+  display:block;
+  overflow: auto;
+  background: rgb(185, 220, 233);
+  width: 40%;
+  right: 0px;
+  top: 290px;
+  height: 350px;
+}
+
+.para {
+    position: absolute;
+    z-index: 4;
+    left: 250px;
+    color: blue;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+</style>
+
+
+<body>
+
+    <div class="container">
+        <div class ="schema">
+            <img  src="{% static "tutorial/schema.png" %}" alt="home" width="800" height="700" />
+        </div>
+        <div class="input-box">
+            <form action="{% url 'tutorial:postgresquery' %}" method="post">
+              {% csrf_token %}
+
+              <textarea name="query" style="width:595px; height:200px;" placeholder="Write Query here"></textarea>
+              <br>
+              <input type="submit" value="Execute">
+            </form>
+          </div>
+        <div class="output-box">
+          {% if emessages %}
+            {{emessages}}
+          {% endif %}
+          {% if cname %}
+              <table>
+                <tr>
+                {% for cname in cname %}
+                    <th>{{cname}}</th>
+                {% endfor %}
+              </tr>
+          {% endif %}
+          {% if messages %}   
+              {% for message in messages %}
+              <tr>
+                  {% for m in message %}
+                    <td>{{ m }} </td>
+                  {% endfor %}
+                </tr> 
+              {% endfor %}
+          {% endif %}
+          
+          
+            </table>
+              
+          
+        </div>
+        <div class="para">
+            <p>DB Schema</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
