@@ -83,4 +83,7 @@ def dataframe(request):
     print(df.size)
     return render(request, "tutorial/dataframe.html", {'message':loc['result']})
 
+def timer(request):
+    return render(request, "tutorial/timer.html" )
+
 

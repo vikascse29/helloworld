@@ -12,6 +12,7 @@ urlpatterns = [
     path('postgresquery/', views.postgresquery, name='postgresquery'),
     path('mysql/', views.mysql, name='mysql'),
     path('dataframe/', views.dataframe, name='dataframe'),
+    path('timer/', views.timer, name='timer'),
     
     
     #path('admin/', admin.site.urls),

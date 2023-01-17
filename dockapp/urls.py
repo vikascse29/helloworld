@@ -13,6 +13,7 @@ urlpatterns = [
     path('<int:question_id>/results/', views.results, name='results'),
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
+    path('user_info', views.user_info, name='user_info'),
     path('nana/', views.nana , name='nana'),
     path('nana/nandocker/', views.nanadocker, name='nanadocker'),
     re_path(r'^nana/nandocker$', views.nanadocker),
